@@ -1,8 +1,12 @@
 <div class="container" >
   <div class="buttons_container">
     <mat-button-toggle-group value="tabla">
-      <mat-button-toggle (click)= "isTableVisible()" value="tabla">tabla</mat-button-toggle>
-      <mat-button-toggle (click)= "isCardVisible()">cards</mat-button-toggle>
+      <mat-button-toggle (click)= "isTableVisible()" value="tabla">
+        <mat-icon>format_align_justify</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle (click)= "isCardVisible()">
+        <mat-icon>account_box</mat-icon>
+      </mat-button-toggle>
     </mat-button-toggle-group>
     <button mat-raised-button  (click)="openDialog()">ADD ROW</button>
   </div>
