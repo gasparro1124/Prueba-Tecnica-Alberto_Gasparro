@@ -27,31 +27,74 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
 </table> -->
+<form [formGroup]="userForm">
+  <table>
+    <thead>
+      <tr>
+        <th>NAME</th>
+        <th>EMAIL</th>
+        <th>DEPARTMENT</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody *ngIf="!editStatus">
+        <tr *ngFor="let member of users">
+          <td class="name">
+            <span>{{member.name}}</span>
+          </td>
 
-<table>
-  <thead>
-    <tr>
-      <th>NAME</th>
-      <th>EMAIL</th>
-      <th>department</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+          <td class="email">
+            <span>{{member.email}}</span>
+          </td>
+
+          <td class="department">
+            <span>{{member.department}}</span>
+          </td>
+
+          <td class="options" *ngIf="!editStatus">
+            <mat-icon class="material-icons edit-icon" (click) = "isEditActive(member)">create</mat-icon>
+            <mat-icon  class="material-icons delete-icon"  mat-raised-button (click)="openDialog(member)">delete</mat-icon>
+          </td>
+
+        </tr>
+    </tbody>
+
+    <tbody *ngIf="editStatus">
       <tr *ngFor="let member of users">
-        <td>
+        <td class="name" *ngIf="userEdit.id != member.id">
           <span>{{member.name}}</span>
         </td>
-        <td>
-          <span>{{ member.email }}</span>
+        <td *ngIf="userEdit.id == member.id">
+          <input formControlName="name" type="text">
         </td>
-        <td>
-          <span>{{ member.department }}</span>
+
+        <td class="email" *ngIf="userEdit.id != member.id">
+          <span>{{member.email}}</span>
         </td>
-        <td class="options">
-          <i class="material-icons edit-icon">mode_edit</i>
-          <i class="material-icons delete-icon" mat-raised-button (click)="openDialog(member)">delete</i>
+        <td class="department" *ngIf="userEdit.id == member.id">
+          <input formControlName="email" type="text">
+        </td>
+
+        <td *ngIf="userEdit.id != member.id">
+          <span>{{member.department}}</span>
+        </td>
+        <td *ngIf="userEdit.id == member.id && editStatus && editStatus">
+          <select  formControlName="department">
+            <option value="Marketing" selected>Marketing</option>
+            <option value="Development">Development</option>
+          </select>
+        </td>
+
+         <!-- If edit user is available-->
+        <td class="options" *ngIf="editStatus && userEdit.id != member.id">
+
+        </td>
+        <td class="options" *ngIf="editStatus && userEdit.id == member.id">
+          <mat-icon class="material-icons done-icon" (click) ="sendEdit(member)">done</mat-icon>
+          <mat-icon class="material-icons cancel-icon" (click) ="isEditDisable()">clear</mat-icon>
         </td>
       </tr>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</form>
+

@@ -20,8 +20,8 @@ export class UserService {
     return this.http.get<UserResponse[]>(this.servicioUrl)
   }
 
-  editUSer(user:UserResponse){
-    return this.http.put<UserResponse>(this.servicioUrl+`${user.id}`, user)
+  editUSer(user:UserResponse):Observable<UserResponse>{
+    return this.http.put<UserResponse>(this.servicioUrl+user.id, user)
   }
 
   deleteUser(user:UserResponse):Observable<{}>{

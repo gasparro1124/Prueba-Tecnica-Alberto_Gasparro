@@ -5,3 +5,13 @@ export interface UserResponse {
   department: string;
   created:    string;
 }
+
+export const emptyUser = ():UserResponse =>{
+  return{
+    id:-1,
+    name:"",
+    email:"",
+    department:"",
+    created:""
+  }
+}

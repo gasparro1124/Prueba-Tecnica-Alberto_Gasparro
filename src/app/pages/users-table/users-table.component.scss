@@ -19,30 +19,67 @@ table{
   // .mat-column-OPTIONS{
   //   width: 100px
   // }
-  .options{
-    width: 100px;
-  }
 
   tr{
     height: 75px;
-      td{
-        border: 2px solid gray;
-        padding: 1rem;
 
-        .edit-icon{
-          padding: 0 1rem;
-          color: green;
-        }
+    .name{
+      width: 30%;
+    }
 
-        .delete-icon{
-          color: red;
-          cursor: pointer;
-        }
+    .email{
+       width:35%
+    }
+
+    .department{
+      width:25% ;
+    }
+
+    .options{
+      width: 10%;
+    }
+
+    td{
+      border: 2px solid gray;
+      padding: 1rem;
+
+      .edit-icon{
+        display: none;
       }
+
+      .delete-icon{
+        display: none;
+      }
+
+      .done-icon{
+        color: green;
+      }
+
+      .cancel-icon{
+        color: red;
+      }
+    }
   }
 
   tr:hover{
-      background-color: antiquewhite
+    background-color: antiquewhite;
+
+    td{
+      border: 2px solid gray;
+      padding: 1rem;
+
+      .delete-icon{
+        display: initial;
+        color: red;
+        cursor: pointer;
+      }
+
+      .edit-icon{
+        display: initial;
+        padding: 0 1rem;
+        color: green;
+      }
+    }
   }
 
 }

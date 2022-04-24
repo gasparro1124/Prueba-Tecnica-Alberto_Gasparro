@@ -18,6 +18,8 @@ import { DirectivesDirective } from './form.directive';
 import { AddUSerComponent } from './add-user/add-user.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { DeleteUSerComponent } from './delete-user/delete-user.component';
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 @NgModule({
@@ -41,6 +43,7 @@ import { DeleteUSerComponent } from './delete-user/delete-user.component';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule
   ],
   exports:[
     HomeComponent

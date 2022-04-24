@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { UserResponse } from '../interfaces';
@@ -37,9 +37,12 @@ export class AddUSerComponent implements OnInit {
     if(this.userForm.valid){
       this.newUser = this.userForm.value
       this.newUser.created = new Date().toISOString().slice(0, 19)
-      this.userService.addUser(this.newUser).subscribe()
 
-      this.users.push(this.newUser)
+      this.userService.addUser(this.newUser).subscribe(
+        r => this.users.push(r)
+
+      )
+
       this.onAdd.emit(this.users);
 
     }else{
