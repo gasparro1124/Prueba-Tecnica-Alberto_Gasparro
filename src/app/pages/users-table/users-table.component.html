@@ -1,0 +1,57 @@
+<!--
+<table mat-table  [dataSource]="users">
+  <ng-container matColumnDef="NAME">
+    <th mat-header-cell *matHeaderCellDef> NAME </th>
+    <td  mat-cell *matCellDef="let element">
+      <span>{{element.name}} </span>
+      <span>hola </span>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="E-MAIL">
+    <th mat-header-cell *matHeaderCellDef> E-MAIL </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="DEPARTMENT">
+    <th mat-header-cell *matHeaderCellDef> DEPARMENT </th>
+    <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="OPTIONS">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell class="icons-colum" *matCellDef="let element" (click)="definirUser(element)">
+      <i class="material-icons edit-icon">mode_edit</i>
+      <i class="material-icons delete-icon">delete</i></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+</table> -->
+
+<table>
+  <thead>
+    <tr>
+      <th>NAME</th>
+      <th>EMAIL</th>
+      <th>department</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let member of users">
+        <td>
+          <span>{{member.name}}</span>
+        </td>
+        <td>
+          <span>{{ member.email }}</span>
+        </td>
+        <td>
+          <span>{{ member.department }}</span>
+        </td>
+        <td class="options">
+          <i class="material-icons edit-icon">mode_edit</i>
+          <i class="material-icons delete-icon" mat-raised-button (click)="openDialog(member)">delete</i>
+        </td>
+      </tr>
+  </tbody>
+</table>

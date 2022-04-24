@@ -1,0 +1,23 @@
+.mat-dialog-content{
+
+
+
+  input{
+    width: 100%;
+    height: 50px;
+    border: solid 1px black;
+    border-radius: 10px;
+  }
+}
+
+.mat-dialog-actions{
+  margin-top: 1rem;
+  background-color: gainsboro;
+
+  .mat-raised-button{
+    font-size: larger;
+    margin: 1rem;
+    background-color: red;
+    border-radius: 15px;
+  }
+}

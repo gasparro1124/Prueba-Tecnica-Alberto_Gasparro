@@ -1,0 +1,50 @@
+
+table{
+  margin: 2rem;
+  width:86vw;
+  height: 89%;
+  border: 1px solid;
+  border-collapse: collapse;
+
+  th{
+    border: 2px solid gray;
+    height: 71px;
+    padding-left: 1rem;
+    font-weight: bold;
+    background-color: rgb(73, 64, 64);
+    color: white;
+    text-align: left;
+  }
+
+  // .mat-column-OPTIONS{
+  //   width: 100px
+  // }
+  .options{
+    width: 100px;
+  }
+
+  tr{
+    height: 75px;
+      td{
+        border: 2px solid gray;
+        padding: 1rem;
+
+        .edit-icon{
+          padding: 0 1rem;
+          color: green;
+        }
+
+        .delete-icon{
+          color: red;
+          cursor: pointer;
+        }
+      }
+  }
+
+  tr:hover{
+      background-color: antiquewhite
+  }
+
+}
+
+

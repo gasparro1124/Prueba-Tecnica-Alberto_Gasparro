@@ -1,0 +1,20 @@
+<div class="container" >
+  <div class="buttons_container">
+    <mat-button-toggle-group value="tabla">
+      <mat-button-toggle (click)= "isTableVisible()" value="tabla">tabla</mat-button-toggle>
+      <mat-button-toggle (click)= "isCardVisible()">cards</mat-button-toggle>
+    </mat-button-toggle-group>
+    <button mat-raised-button  (click)="openDialog()">ADD ROW</button>
+  </div>
+
+  <div class="component_container" *ngIf="tableVisivility">
+    <app-users-table [users]="users"></app-users-table>
+  </div>
+
+  <div class="component_container" *ngIf="!tableVisivility">
+    <app-miniatures [users]="users"></app-miniatures>
+  </div>
+
+</div>
+
+

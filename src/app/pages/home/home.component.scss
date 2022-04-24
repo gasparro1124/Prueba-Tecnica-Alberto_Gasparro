@@ -1,0 +1,43 @@
+@import "../../../styles.scss";
+
+.container{
+  margin: auto;
+  margin-top: 5%;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+  background-color: $background-color;
+  width: 90vw;
+
+  .buttons_container{
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .mat-button-toggle{
+      background-color: grey ;
+      color: #f5f5f6;
+    }
+    .mat-button-toggle-checked {
+      background-color: rgb(181, 243, 181);
+      color: #f5f5f6;
+    }
+  }
+
+  .mat-dialog-container {
+    padding: 0px !important;
+}
+
+
+
+  .component_container{
+    width: 90vw;
+    height: 50vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    overflow-x:hidden;
+    overflow-y: scroll;
+  }
+}

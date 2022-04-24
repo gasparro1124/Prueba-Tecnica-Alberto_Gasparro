@@ -1,0 +1,16 @@
+<h2>Add row</h2>
+<div mat-dialog-content>
+  <h4>Name</h4>
+  <input disabled [value]=delUser.name>
+
+  <h4>E-Mail</h4>
+  <input  disabled [value]=delUser.email>
+
+  <h4>Department</h4>
+  <input disabled [value]=delUser.department>
+</div>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button (click)="deleteUser()" mat-dialog-close>Remove</button>
+</div>
+
