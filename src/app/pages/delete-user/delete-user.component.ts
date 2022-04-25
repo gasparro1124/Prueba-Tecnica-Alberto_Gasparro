@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Inject, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
-import { subscribeOn, Subscription } from 'rxjs';
+import {  Subscription } from 'rxjs';
 
 import { UserResponse } from '../interfaces';
 import { UserService } from '../user.service';
@@ -24,8 +24,8 @@ export class DeleteUSerComponent implements OnInit {
   ngOnInit(): void {
     const sub = this.userService.getUsers().subscribe(
       r => {
-        this.users = r
-        this.userService.allUsers = this.users
+        this.users = [...r]
+        this.userService.allUsers = [...this.users]
       }
     )
 
@@ -38,8 +38,9 @@ export class DeleteUSerComponent implements OnInit {
     this.userService.deleteUser(this.delUser).subscribe()
 
     this.users = this.users.filter( c => c.id != this.delUser.id)
-    
+
     this.subs.forEach(e => e.unsubscribe())
+    this.userService.allUsers = [...this.users]
     this.onDelete.emit(this.users);
   }
 

@@ -21,8 +21,8 @@ export class AddUSerComponent implements OnInit {
   ngOnInit(): void {
     const sub = this.userService.getUsers().subscribe(
       r => {
-        this.users = r
-        this.userService.allUsers = this.users
+        this.users = [...r]
+        this.userService.allUsers = [...this.users]
       }
     )
 
@@ -39,10 +39,14 @@ export class AddUSerComponent implements OnInit {
       this.newUser.created = new Date().toISOString().slice(0, 19)
 
       this.userService.addUser(this.newUser).subscribe(
-        r => this.users.push(r)
-
+        r => {
+          const fake = this.users
+          fake.push(r)
+          this.users = [...fake]
+        }
       )
 
+      this.userService.allUsers = [...this.users]
       this.onAdd.emit(this.users);
 
     }else{

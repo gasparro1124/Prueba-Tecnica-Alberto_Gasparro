@@ -30,8 +30,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     const sub = this.userService.getUsers().subscribe(
       r => {
-        this.users = r
-        this.userService.allUsers = this.users
+        this.users = [...r]
+        this.userService.allUsers = [...this.users]
       }
     )
 
@@ -45,11 +45,16 @@ export class HomeComponent implements OnInit {
   }
 
   isTableVisible(){
+    this.users = [...this.userService.allUsers]
+
     this.tableVisivility = true
     this.cardVisivility = false
   }
 
   isCardVisible(){
+    this.users = [...this.userService.allUsers]
+
+
     this.tableVisivility = false
     this.cardVisivility = true
   }
@@ -62,6 +67,8 @@ export class HomeComponent implements OnInit {
 
     const sub = ref.componentInstance.onAdd.subscribe((data) => {
       this.users = data;
+      this.userService.allUsers = data
+      console.log(this.users)
     });
 
     ref.afterClosed().subscribe(() => {

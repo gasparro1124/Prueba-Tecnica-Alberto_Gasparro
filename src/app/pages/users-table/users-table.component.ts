@@ -46,6 +46,7 @@ export class UsersTableComponent implements OnInit {
 
     const sub = ref.componentInstance.onDelete.subscribe((data) => {
       this.users = data;
+      this.userService.allUsers = this.users
     });
 
     ref.afterClosed().subscribe(() => {
@@ -85,6 +86,7 @@ export class UsersTableComponent implements OnInit {
           :-1
         if( idToUpdate > -1){
           this.users[idToUpdate] = user
+          this.userService.allUsers = this.users
         }
       })
 
