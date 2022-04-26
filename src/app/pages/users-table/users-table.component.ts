@@ -33,8 +33,6 @@ export class UsersTableComponent implements OnInit {
     })
   }
 
-  //displayedColumns: string[] = ['NAME', 'E-MAIL', 'DEPARTMENT', 'OPTIONS'];
-
  openDialog(user:UserResponse) {
     const ref = this.deleteUser.open(DeleteUSerComponent, {
       width:'60%',
@@ -91,17 +89,15 @@ export class UsersTableComponent implements OnInit {
       })
 
       this.editStatus = false
-      this.userEdit =emptyUser()
+      this.userEdit = emptyUser()
 
     }else{
+
       alert('error')
       this.editStatus = false
-      this.userEdit =emptyUser()
+      this.userEdit = emptyUser()
 
     }
-
-
-
   }
 
 }

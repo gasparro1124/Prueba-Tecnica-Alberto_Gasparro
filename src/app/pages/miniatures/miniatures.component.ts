@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { UserResponse } from '../interfaces';
 import { UserService } from '../user.service';
+import { userModule } from '../user.module';
 
 @Component({
   selector: 'app-miniatures',
@@ -16,43 +17,18 @@ export class MiniaturesComponent implements OnInit {
   constructor(private userService:UserService) {}
 
   ngOnInit(): void {
-    // this.users.filter((user) => {
-    //   if (user.department.toLowerCase() == 'marketing')
-    //     this.usersMarketing.push(user);
-    // });
-
-    // this.users.filter((user) => {
-    //   if (user.department.toLowerCase() == 'development')
-    //     this.usersDevelopment.push(user);
-    // });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.usersMarketing = [];
-    this.usersDevelopment = [];
 
-    console.log(changes)
-    changes['users'].currentValue.filter((user:UserResponse) => {
-      if (user.department.toLowerCase() == 'marketing')
-        this.usersMarketing.push(user);
-        this.experience(user)
-    });
-
-    changes['users'].currentValue.filter((user:UserResponse) => {
-      if (user.department.toLowerCase() == 'development')
-        this.usersDevelopment.push(user);
-    });
-  }
-
-  searchUser(members: UserResponse[], value: String): UserResponse[] {
+  searchUser(members: UserResponse[],filter:string, value: String): UserResponse[] {
     return members.filter(
       (member) =>
-        member.name.toLowerCase().includes(value.toLowerCase()) ||
-        member.email.toLowerCase().includes(value.toLowerCase())
+        (member.name.toLowerCase().includes(value.toLowerCase()) ||
+        member.email.toLowerCase().includes(value.toLowerCase())) && member.department.toLowerCase() == filter.toLowerCase()
     );
   }
 
-  experience(member:UserResponse){
+  experience(member:UserResponse):string{
 
     let actualDate = new Date()
     let userDate  = new Date(member.created.split('T')[0])
@@ -60,6 +36,13 @@ export class MiniaturesComponent implements OnInit {
     let timeInMilisec = actualDate.getTime() - userDate.getTime()
     let days = Math.ceil(timeInMilisec/(1000*60*60*24))
 
-    return days
+    if(days <=1)
+      return 'Experienced'
+    else if( days >1 && days <=2 )
+      return 'Advanced'
+    else if(days >2 && days <=3)
+      return 'Senior'
+    else
+      return 'Expert'
   }
 }

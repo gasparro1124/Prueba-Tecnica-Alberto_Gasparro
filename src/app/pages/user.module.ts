@@ -14,7 +14,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input'////////
 
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { DirectivesDirective } from './form.directive';
 import { AddUSerComponent } from './add-user/add-user.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { DeleteUSerComponent } from './delete-user/delete-user.component';
@@ -27,7 +26,6 @@ import {MatIconModule} from '@angular/material/icon';
     UsersTableComponent,
     MiniaturesComponent,
     HomeComponent,
-    DirectivesDirective,
     AddUSerComponent,
     DeleteUSerComponent
   ],
