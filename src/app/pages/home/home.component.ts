@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { UserResponse } from '../interfaces';
 import { UserService } from '../user.service';
@@ -62,6 +62,7 @@ export class HomeComponent implements OnInit {
   openDialog() {
     const ref = this.addUSer.open(AddUSerComponent, {
       width:'60%',
+      panelClass: 'custom-dialog-container',
       disableClose: true
     });
 

@@ -1,5 +1,5 @@
-<h2>Add row</h2>
 <div mat-dialog-content>
+  <h2>Delete row</h2>
   <h4>Name</h4>
   <input disabled [value]=delUser.name>
 
@@ -11,6 +11,6 @@
 </div>
 <div mat-dialog-actions [align]="'end'">
   <button mat-raised-button mat-dialog-close>Cancel</button>
-  <button mat-raised-button (click)="deleteUser()" mat-dialog-close>Remove</button>
+  <button mat-raised-button class="delete" (click)="deleteUser()" mat-dialog-close #btn [autofocus]="btn.focus()">Remove</button>
 </div>
 

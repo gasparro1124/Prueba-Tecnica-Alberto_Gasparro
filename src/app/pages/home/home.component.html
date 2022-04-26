@@ -2,22 +2,19 @@
   <div class="buttons_container">
     <mat-button-toggle-group value="tabla">
       <mat-button-toggle (click)= "isTableVisible()" value="tabla">
-        <mat-icon>format_align_justify</mat-icon>
+        <i class="uil uil-table"></i>
       </mat-button-toggle>
       <mat-button-toggle (click)= "isCardVisible()">
-        <mat-icon>account_box</mat-icon>
+        <i class="uil uil-browser"></i>
       </mat-button-toggle>
     </mat-button-toggle-group>
     <button mat-raised-button  (click)="openDialog()">ADD ROW</button>
   </div>
 
-  <div class="component_container" *ngIf="tableVisivility">
-    <app-users-table [users]="users" ></app-users-table>
-  </div>
 
-  <div class="component_container" *ngIf="!tableVisivility">
-    <app-miniatures [users]="users"></app-miniatures>
-  </div>
+    <app-users-table [users]="users"  *ngIf="tableVisivility"></app-users-table>
+
+    <app-miniatures [users]="users" *ngIf="!tableVisivility"></app-miniatures>
 
 </div>
 

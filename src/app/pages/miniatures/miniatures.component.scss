@@ -1,47 +1,49 @@
-.base{
-  width:88vw;
-  height: 80%;
-  padding: 1rem;
+:host{
+  width: 100%;
 
-  display: flex;
-  justify-content: center;
-  background-color: azure;
+  // .base{
+  //   width:88vw;
+  //   height: 80%;
+  //   padding: 1rem;
 
-  .c1{
-    border-right: black 1px solid;
-  }
-  .card-container{
-    height: 95%;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: flex-start;
-    background-color: aquamarine;
-    overflow:hidden;
+  //   display: flex;
+  //   justify-content: center;
+  //   background-color: azure;
 
-    h3{
-      height: 10px;
-    }
+  //   .c1{
+  //     border-right: black 1px solid;
+  //   }
+  //   .card-container{
+  //     height: 95%;
+  //     display: flex;
+  //     flex-wrap: wrap;
+  //     align-content: flex-start;
+  //     justify-content: flex-start;
+  //     background-color: aquamarine;
+  //     overflow:hidden;
 
-    input{
-      margin: 1rem 0;
-      width: 88%;
-      height: 50px;
-    }
+  //     h3{
+  //       height: 10px;
+  //     }
 
-    .members-container{
-      display: flex;
-      height:300px;
-      width: 90%;
-      background-color: brown;
+  //     input{
+  //       margin: 1rem 0;
+  //       width: 88%;
+  //       height: 50px;
+  //     }
 
-      mat-card{
-        width: 200px;
-        height: 300px;
-      }
+  //     .members-container{
+  //       display: flex;
+  //       height:300px;
+  //       width: 90%;
+  //       background-color: brown;
 
-    }
+  //       mat-card{
+  //         width: 200px;
+  //         height: 300px;
+  //       }
 
-
-  }
+  //     }
+  //   }
+  // }
 }

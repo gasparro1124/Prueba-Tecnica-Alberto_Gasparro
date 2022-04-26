@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { UserResponse } from '../interfaces';
@@ -6,7 +6,8 @@ import { UserResponse } from '../interfaces';
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.scss']
+  styleUrls: ['./add-user.component.scss'],
+  encapsulation:ViewEncapsulation.None
 })
 export class AddUSerComponent implements OnInit {
 
@@ -14,23 +15,27 @@ export class AddUSerComponent implements OnInit {
   newUser!:UserResponse
   users:UserResponse[] = []
 
+  isValid:boolean = false
+
+
+
   onAdd = new EventEmitter();
 
   constructor(private fb: FormBuilder, private userService:UserService) { }
 
   ngOnInit(): void {
-    const sub = this.userService.getUsers().subscribe(
+
+    this.userService.getUsers().subscribe(
       r => {
         this.users = [...r]
-        this.userService.allUsers = [...this.users]
       }
     )
-
     this.userForm = this.fb.group({
       name:['', Validators.required],
       email: ['',[ Validators.required, Validators.email]],
       department:['',[ Validators.required]]
     })
+
   }
 
   addUser(){
@@ -45,12 +50,7 @@ export class AddUSerComponent implements OnInit {
           this.users = [...fake]
         }
       )
-
-      this.userService.allUsers = [...this.users]
       this.onAdd.emit(this.users);
-
-    }else{
-      alert('campo invalido')
     }
   }
 

@@ -33,10 +33,13 @@ export class UsersTableComponent implements OnInit {
     })
   }
 
- openDialog(user:UserResponse) {
+
+  //Open de Mat-dialog of delete user
+  openDialog(user:UserResponse) {
     const ref = this.deleteUser.open(DeleteUSerComponent, {
       width:'60%',
       disableClose:true,
+      panelClass: 'custom-dialog-container',
       data:{
         user:user
       }
@@ -52,6 +55,7 @@ export class UsersTableComponent implements OnInit {
     });
   }
 
+
   isEditActive(user:UserResponse){
     this.editStatus = true
     this.userEdit = user
@@ -63,11 +67,11 @@ export class UsersTableComponent implements OnInit {
 
   isEditDisable(){
     this.editStatus = false
-    this.userEdit =emptyUser()
+    this.userEdit = emptyUser()
   }
 
+  //update the selected user
   sendEdit(user:UserResponse){
-
     if(this.userForm.valid){
 
       user = {
@@ -92,12 +96,11 @@ export class UsersTableComponent implements OnInit {
       this.userEdit = emptyUser()
 
     }else{
-
       alert('error')
       this.editStatus = false
       this.userEdit = emptyUser()
-
     }
+
   }
 
 }

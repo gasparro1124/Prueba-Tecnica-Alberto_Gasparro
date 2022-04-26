@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, ViewEncapsulation} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {  Subscription } from 'rxjs';
 
@@ -9,7 +9,8 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-delete-user',
   templateUrl: './delete-user.component.html',
-  styleUrls: ['./delete-user.component.scss']
+  styleUrls: ['./delete-user.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DeleteUSerComponent implements OnInit {
 
@@ -25,7 +26,6 @@ export class DeleteUSerComponent implements OnInit {
     const sub = this.userService.getUsers().subscribe(
       r => {
         this.users = [...r]
-        this.userService.allUsers = [...this.users]
       }
     )
 
@@ -40,7 +40,7 @@ export class DeleteUSerComponent implements OnInit {
     this.users = this.users.filter( c => c.id != this.delUser.id)
 
     this.subs.forEach(e => e.unsubscribe())
-    this.userService.allUsers = [...this.users]
+
     this.onDelete.emit(this.users);
   }
 

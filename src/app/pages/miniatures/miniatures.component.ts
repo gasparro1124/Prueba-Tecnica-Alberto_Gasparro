@@ -1,7 +1,5 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { UserResponse } from '../interfaces';
-import { UserService } from '../user.service';
-import { userModule } from '../user.module';
 
 @Component({
   selector: 'app-miniatures',
@@ -14,7 +12,7 @@ export class MiniaturesComponent implements OnInit {
   usersMarketing: UserResponse[] = [];
   usersDevelopment: UserResponse[] = [];
 
-  constructor(private userService:UserService) {}
+  constructor() {}
 
   ngOnInit(): void {
   }
@@ -24,7 +22,8 @@ export class MiniaturesComponent implements OnInit {
     return members.filter(
       (member) =>
         (member.name.toLowerCase().includes(value.toLowerCase()) ||
-        member.email.toLowerCase().includes(value.toLowerCase())) && member.department.toLowerCase() == filter.toLowerCase()
+        member.email.toLowerCase().includes(value.toLowerCase())) &&
+        member.department.toLowerCase() == filter.toLowerCase()
     );
   }
 
