@@ -1,0 +1,106 @@
+:host{
+  background-color: white;
+  width: 100%;
+  box-shadow: 4px 4px 10px grey;
+  border-radius: 10px;
+
+  table{
+    margin: 2rem;
+    width: 97%;
+    height: 89%;
+    border: 1px solid;
+    border-collapse: collapse;
+
+
+    th{
+      border: 2px solid gray;
+      height: 71px;
+      padding-left: 1rem;
+      font-weight: bold;
+      background-color: rgba(35, 40, 46, 0.747);
+      color: white;
+      text-align: left;
+    }
+
+    tr{
+      height: 75px;
+
+      .name{
+        width: 30%;
+      }
+
+      .email{
+         width:35%
+      }
+
+      .department{
+        width:25% ;
+      }
+
+      td{
+        border: 2px solid gray;
+        padding: 1rem;
+
+        .hover-icons {
+          display: flex;
+          justify-content: center;
+          mat-icon:first-child {
+            margin-right: 15px;
+          }
+
+          .edit-icon, .done-icon{
+            visibility: hidden;
+            color: green;
+            cursor: pointer;
+            &.visible {
+              visibility: visible;
+            }
+          }
+
+          .delete-icon, .cancel-icon{
+            visibility: hidden;
+            color: red;
+            cursor: pointer;
+            &.visible {
+              visibility: visible;
+            }
+          }
+        }
+
+        input{
+          height: 40px;
+          width: 95%;
+          padding: 0;
+          padding-left: 12px;
+          outline-color: green;
+        }
+
+        select{
+          height: 42px;
+          width: 95%;
+          padding: 8px;
+        }
+      }
+    }
+
+    tr:hover{
+      background-color: rgba(168, 163, 163, 0.192);
+
+      td{
+        border: 2px solid gray;
+        padding: 1rem;
+      }
+
+      .options .hover-icons{
+        .delete-icon, .cancel-icon{
+          visibility: visible;
+        }
+
+        .edit-icon, .done-icon{
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+}

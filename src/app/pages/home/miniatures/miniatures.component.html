@@ -1,0 +1,34 @@
+
+<div class="container-container">
+  <div class="card-container">
+    <h3>Marketing</h3>
+    <input type="text" #searchMarketing (keyup)="0">
+    <div class="members-container">
+      <mat-card *ngFor="let user of searchUser(users,'marketing',searchMarketing.value)">
+        <div class="img-container">
+          <img src="../../../../assets/userIcon.jpg">
+          <p class="experience">{{experience(user)}}</p>
+        </div>
+        <p class="info">{{user.name}}</p>
+        <p class="info">{{user.email}}</p>
+      </mat-card>
+    </div>
+  </div>
+
+  <div  class="card-container">
+    <h3>Development</h3>
+    <input type="text" #searchDevelopment (keyup)="0">
+    <div class="members-container">
+      <mat-card *ngFor="let user of searchUser(users,'development',searchDevelopment.value)">
+        <div class="img-container">
+          <img src="../../../../assets/userIcon.jpg">
+          <p class="experience">{{experience(user)}}</p>
+        </div>
+        <p class="info">{{user.name}}</p>
+        <p class="info">{{user.email}}</p>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+

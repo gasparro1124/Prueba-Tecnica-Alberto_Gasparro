@@ -1,0 +1,70 @@
+:host{
+  width: 100%;
+  background-color: white;
+  box-shadow: 4px 4px 10px grey;
+  border-radius: 10px;
+  padding: 2rem;
+
+  .container-container{
+    display: flex;
+
+    .card-container{
+      display: flex;
+      flex-direction: column;
+      width: 48.9%;
+      &:first-child{
+        border-right: 1px solid black;
+        margin-right: 20px;
+        padding-right: 20px;
+      }
+
+      input{
+        width: 98%;
+        height: 40px;
+        padding: 0;
+        padding-left: 15px;
+        margin-bottom: 20px;
+      }
+
+      .members-container{
+        display: flex;
+        flex-wrap: wrap;
+
+        mat-card{
+          text-align: center;
+          position: relative;
+          width: 180px;
+          height: 250px;
+          margin: 0 10px 10px 0;
+
+          .img-container{
+            position: relative;
+            text-align: center;
+            margin-bottom: 15px;
+
+            img{
+              width: 130px;
+              height: 160px;
+              border-radius: 50%;
+            }
+
+            .experience{
+              width: 50%;
+              position: absolute;
+              left: 44px;
+              top: 124px;
+            }
+          }
+
+          .info{
+            height: 20px;
+            flex-wrap: nowrap;
+            overflow:hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+
+}

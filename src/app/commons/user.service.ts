@@ -12,15 +12,13 @@ export class UserService {
 
   private servicioUrl: string = 'http://34.241.217.201/users_agb/'
 
-
   constructor(private http: HttpClient ) { }
-
 
   getUsers():Observable<UserResponse[]>{
     return this.http.get<UserResponse[]>(this.servicioUrl)
   }
 
-  editUSer(user:UserResponse):Observable<UserResponse>{
+  editUser(user:UserResponse):Observable<UserResponse>{
     return this.http.put<UserResponse>(this.servicioUrl+user.id, user)
   }
 

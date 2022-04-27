@@ -1,0 +1,47 @@
+<form [formGroup]="userForm">
+  <table>
+    <thead>
+      <tr>
+        <th>NAME</th>
+        <th>EMAIL</th>
+        <th>DEPARTMENT</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let member of users">
+          <td class="name">
+            <span *ngIf="userEdit.id !== member.id">{{member.name}}</span>
+            <input *ngIf="userEdit.id == member.id" formControlName="name" type="text">
+          </td>
+
+          <td class="email">
+            <span *ngIf="userEdit.id != member.id">{{member.email}}</span>
+            <input formControlName="email" type="text" *ngIf="userEdit.id == member.id">
+          </td>
+
+          <td class="department">
+            <span *ngIf="userEdit.id !== member.id ">{{member.department}}</span>
+            <select  formControlName="department" *ngIf="userEdit.id == member.id">
+              <option value="Marketing" selected>Marketing</option>
+              <option value="Development">Development</option>
+            </select>
+          </td>
+
+          <td class="options">
+            <div class="hover-icons" *ngIf="userEdit.id !== member.id ">
+              <mat-icon class="material-icons-outlined edit-icon" (click) = "isEditActive(member)">create</mat-icon>
+              <mat-icon  class="material-icons-outlined delete-icon"  mat-raised-button (click)="openDialog(member)">delete</mat-icon>
+            </div>
+
+            <div class="hover-icons" *ngIf="userEdit.id == member.id ">
+              <mat-icon class="material-icons done-icon" [class.visible]="userEdit.id == member.id" (click) ="sendEdit(member)">done</mat-icon>
+              <mat-icon class="material-icons cancel-icon" [class.visible]="userEdit.id == member.id" (click) ="isEditDisable()">clear</mat-icon>
+            </div>
+
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</form>
+

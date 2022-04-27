@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
-import { UserResponse } from '../interfaces';
+import { UserResponse } from '../../../commons/interfaces';
 
 @Component({
   selector: 'app-miniatures',
@@ -16,7 +16,6 @@ export class MiniaturesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 
   searchUser(members: UserResponse[],filter:string, value: String): UserResponse[] {
     return members.filter(

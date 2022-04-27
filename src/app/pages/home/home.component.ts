@@ -1,31 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription, Observable } from 'rxjs';
 
-import { UserResponse } from '../interfaces';
-import { UserService } from '../user.service';
-import { AddUSerComponent } from '../add-user/add-user.component';
-
+import { UserResponse } from '../../commons/interfaces';
+import { UserService } from '../../commons/user.service';
+import { AddUSerComponent } from '../../modals/add-user/add-user.component';
 import {MatDialog} from '@angular/material/dialog';
-
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-
+export class HomeComponent implements OnInit, OnDestroy {
   public users: UserResponse[] = []
+  private subs: Subscription[] = []
+  public tableVisibility = true
 
   constructor(
     private userService: UserService,
     private addUSer: MatDialog
   ){ }
-
-  private subs: Subscription[] = []
-
-  public tableVisivility = true
-  public cardVisivility = false
 
   ngOnInit(): void {
     const sub = this.userService.getUsers().subscribe(
@@ -34,7 +28,6 @@ export class HomeComponent implements OnInit {
         this.userService.allUsers = [...this.users]
       }
     )
-
     this.subs.push(sub)
   }
 
@@ -46,17 +39,12 @@ export class HomeComponent implements OnInit {
 
   isTableVisible(){
     this.users = [...this.userService.allUsers]
-
-    this.tableVisivility = true
-    this.cardVisivility = false
+    this.tableVisibility = true
   }
 
   isCardVisible(){
     this.users = [...this.userService.allUsers]
-
-
-    this.tableVisivility = false
-    this.cardVisivility = true
+    this.tableVisibility = false
   }
 
   openDialog() {
@@ -69,7 +57,6 @@ export class HomeComponent implements OnInit {
     const sub = ref.componentInstance.onAdd.subscribe((data) => {
       this.users = data;
       this.userService.allUsers = data
-      console.log(this.users)
     });
 
     ref.afterClosed().subscribe(() => {

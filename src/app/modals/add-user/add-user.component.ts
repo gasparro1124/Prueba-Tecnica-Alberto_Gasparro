@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../user.service';
-import { UserResponse } from '../interfaces';
+import { UserService } from '../../commons/user.service';
+import { UserResponse, emptyUser } from '../../commons/interfaces';
 
 @Component({
   selector: 'app-add-user',
@@ -11,13 +11,11 @@ import { UserResponse } from '../interfaces';
 })
 export class AddUSerComponent implements OnInit {
 
-  userForm!:FormGroup
-  newUser!:UserResponse
+  userForm: FormGroup = new FormGroup({})
+  newUser:UserResponse = emptyUser()
   users:UserResponse[] = []
 
   isValid:boolean = false
-
-
 
   onAdd = new EventEmitter();
 
@@ -35,7 +33,6 @@ export class AddUSerComponent implements OnInit {
       email: ['',[ Validators.required, Validators.email]],
       department:['',[ Validators.required]]
     })
-
   }
 
   addUser(){
