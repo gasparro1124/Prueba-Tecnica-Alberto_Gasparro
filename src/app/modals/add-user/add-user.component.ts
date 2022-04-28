@@ -35,7 +35,7 @@ export class AddUSerComponent implements OnInit {
     })
   }
 
-  addUser(){
+  addUser():void{
     if(this.userForm.valid){
       this.newUser = this.userForm.value
       this.newUser.created = new Date().toISOString().slice(0, 19)

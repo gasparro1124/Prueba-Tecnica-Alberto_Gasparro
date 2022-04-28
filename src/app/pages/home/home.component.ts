@@ -37,17 +37,17 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
   }
 
-  isTableVisible(){
+  isTableVisible():void{
     this.users = [...this.userService.allUsers]
     this.tableVisibility = true
   }
 
-  isCardVisible(){
+  isCardVisible():void{
     this.users = [...this.userService.allUsers]
     this.tableVisibility = false
   }
 
-  openDialog() {
+  openDialog():void {
     const ref = this.addUSer.open(AddUSerComponent, {
       width:'60%',
       panelClass: 'custom-dialog-container',

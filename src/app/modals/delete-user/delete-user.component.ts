@@ -25,7 +25,7 @@ export class DeleteUserComponent implements OnInit {
     this.delUser = this.dialogRef._containerInstance._config.data.user
   }
 
-  deleteUser(){
+  deleteUser():void{
     this.userService.deleteUser(this.delUser).subscribe()
 
     this.users = this.users.filter( c => c.id != this.delUser.id)

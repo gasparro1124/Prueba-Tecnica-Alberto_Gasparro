@@ -32,7 +32,7 @@ export class UsersTableComponent implements OnInit {
     })
   }
 
-  openDialog(user:UserResponse) {
+  openDialog(user:UserResponse):void {
     const ref = this.deleteUser.open(DeleteUserComponent, {
       width:'60%',
       disableClose:true,
@@ -52,18 +52,18 @@ export class UsersTableComponent implements OnInit {
     });
   }
 
-  isEditActive(user:UserResponse){
+  isEditActive(user:UserResponse):void{
     this.userEdit = user
     this.userForm.controls['name'].setValue(user.name);
     this.userForm.controls['email'].setValue(user.email);
     this.userForm.controls['department'].setValue(user.department);
   }
 
-  isEditDisable(){
+  isEditDisable():void{
     this.userEdit = emptyUser()
   }
 
-  sendEdit(user:UserResponse){
+  sendEdit(user:UserResponse):void{
     if(this.userForm.valid){
 
       user = {
@@ -87,7 +87,7 @@ export class UsersTableComponent implements OnInit {
       this.userEdit = emptyUser()
 
     }else{
-      alert('error')
+      alert('No leave void or invalid camps')
       this.userEdit = emptyUser()
     }
 
