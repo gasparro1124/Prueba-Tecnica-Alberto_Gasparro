@@ -71,7 +71,7 @@ export class UsersTableComponent implements OnInit {
         name:this.userForm.value.name,
         email:this.userForm.value.email,
         department:this.userForm.value.department,
-        created: new Date().toISOString().slice(0, 19)
+        created: user.created
       }
 
       this.userService.editUser(user).subscribe(u=>{
@@ -90,7 +90,7 @@ export class UsersTableComponent implements OnInit {
       alert('error')
       this.userEdit = emptyUser()
     }
-    
+
   }
 
 }

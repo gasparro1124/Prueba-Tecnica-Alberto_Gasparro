@@ -11,6 +11,10 @@
     border-radius: 10px;
   }
 
+  .formInputInvalid{
+    border: 1px solid red;
+  }
+
   select{
     padding: 5px;
     width: 103%;
@@ -39,7 +43,7 @@
     outline: unset;
   }
 
-  .accept{
+  .accept:disabled{
     font-size: larger;
     width: 100px;
     margin: 1rem;
@@ -47,7 +51,7 @@
     background-color: $color-buttons;
   }
 
-  .accept:disabled{
+  .accept{
     font-size: larger;
     width: 100px;
     margin: 1rem;

@@ -5,7 +5,7 @@
     <input  formControlName="name">
 
     <h4>E-Mail</h4>
-    <input formControlName="email">
+    <input formControlName="email" [ngClass]="{'formInputInvalid':userForm.get('email')?.invalid && userForm.get('email')?.touched}">
 
     <h4>Department</h4>
     <select  formControlName="department">

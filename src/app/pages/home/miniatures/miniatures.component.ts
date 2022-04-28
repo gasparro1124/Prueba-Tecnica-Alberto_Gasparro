@@ -27,7 +27,6 @@ export class MiniaturesComponent implements OnInit {
   }
 
   experience(member:UserResponse):string{
-
     let actualDate = new Date()
     let userDate  = new Date(member.created.split('T')[0])
 
@@ -42,5 +41,12 @@ export class MiniaturesComponent implements OnInit {
       return 'Senior'
     else
       return 'Expert'
+  }
+
+  colorExperience(text:string){
+    if (text == 'Experienced') return "rgb(18, 102, 74)"
+    else if (text == 'Advanced') return "rgb(5, 103, 133)"
+    else if (text == 'Senior') return "rgb(146, 27, 146)"
+    else return " rgb(247, 161, 2)"
   }
 }

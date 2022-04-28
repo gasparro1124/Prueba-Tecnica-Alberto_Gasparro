@@ -42,9 +42,8 @@ export class AddUSerComponent implements OnInit {
 
       this.userService.addUser(this.newUser).subscribe(
         r => {
-          const fake = this.users
-          fake.push(r)
-          this.users = [...fake]
+          this.users.push(r)
+          this.users = [...this.users]
         }
       )
       this.onAdd.emit(this.users);
