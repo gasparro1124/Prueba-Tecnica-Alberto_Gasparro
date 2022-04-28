@@ -6,7 +6,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { UsersTableComponent } from './home/users-table/users-table.component';
 import { MiniaturesComponent } from './home/miniatures/miniatures.component';
 import { HomeComponent } from './home/home.component';
-import { AddUSerComponent } from '../modals/add-user/add-user.component';
+import { AddUserComponent } from '../modals/add-user/add-user.component';
 import { DeleteUserComponent } from '../modals/delete-user/delete-user.component';
 
 import {MatButtonModule} from '@angular/material/button';
@@ -21,7 +21,7 @@ import {MatIconModule} from '@angular/material/icon';
     UsersTableComponent,
     MiniaturesComponent,
     HomeComponent,
-    AddUSerComponent,
+    AddUserComponent,
     DeleteUserComponent,
   ],
   imports: [

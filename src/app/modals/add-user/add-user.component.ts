@@ -9,7 +9,7 @@ import { UserResponse, emptyUser } from '../../commons/interfaces';
   styleUrls: ['./add-user.component.scss'],
   encapsulation:ViewEncapsulation.None
 })
-export class AddUSerComponent implements OnInit {
+export class AddUserComponent implements OnInit {
 
   userForm: FormGroup = new FormGroup({})
   newUser:UserResponse = emptyUser()

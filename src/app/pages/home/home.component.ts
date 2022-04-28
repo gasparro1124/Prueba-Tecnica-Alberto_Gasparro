@@ -3,7 +3,7 @@ import { Subscription, Observable } from 'rxjs';
 
 import { UserResponse } from '../../commons/interfaces';
 import { UserService } from '../../commons/user.service';
-import { AddUSerComponent } from '../../modals/add-user/add-user.component';
+import { AddUserComponent } from '../../modals/add-user/add-user.component';
 import {MatDialog} from '@angular/material/dialog';
 
 @Component({
@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   openDialog():void {
-    const ref = this.addUSer.open(AddUSerComponent, {
+    const ref = this.addUSer.open(AddUserComponent, {
       width:'60%',
       panelClass: 'custom-dialog-container',
       disableClose: true
