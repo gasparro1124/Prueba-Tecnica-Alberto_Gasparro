@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, ViewEncapsulation} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 
-import { UserResponse } from '../../commons/interfaces';
+import { UserResponse, emptyUser } from '../../commons/interfaces';
 import { UserService } from '../../commons/user.service';
 
 
@@ -13,7 +13,7 @@ import { UserService } from '../../commons/user.service';
 })
 export class DeleteUserComponent implements OnInit {
 
-  delUser!:UserResponse
+  delUser:UserResponse = emptyUser()
   users:UserResponse[] = []
 
   onDelete = new EventEmitter();
